@@ -9,7 +9,7 @@ if (pacientes.length === 0) {
             edad: 36,
             direccion: "Calle siempreviva 742",
             diagnostico: "Crayon en el cerebro",
-            fechaHoraIngreso: ""
+            fechaHoraIngreso: "16/10/2022 6:46 AM"
         },
         {
             nombre: "Peter",
@@ -17,7 +17,7 @@ if (pacientes.length === 0) {
             edad: 16,
             direccion: "69th Road, en Forest Hills",
             diagnostico: "Delirios de poderes por picadura de araña radioactiva",
-            fechaHoraIngreso: ""
+            fechaHoraIngreso: "9/03/2023 4:22 AM"
         },
         {
             nombre: "Bruce",
@@ -25,7 +25,7 @@ if (pacientes.length === 0) {
             edad: 40,
             direccion: "Mansion Wayne",
             diagnostico: "quiroptofobia.",
-            fechaHoraIngreso: ""
+            fechaHoraIngreso: "11/09/2001 8:46 AM"
         }
     ];
 }
