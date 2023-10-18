@@ -29,7 +29,6 @@ if (pacientes.length === 0) {
         }
     ];
 }
-
 function mostrarMensaje(mensaje, bgColor, textColor) {
     const contenedorMensaje = document.getElementById("contenedor-mensaje");
     contenedorMensaje.innerHTML = mensaje;
@@ -42,29 +41,24 @@ function mostrarMensaje(mensaje, bgColor, textColor) {
     }, 2500);
 }
 
-const credencialesOriginales = {
-    usuario: "Coder",
-    contrasena: "lapelucaloca123"
-};
-
 document.getElementById("boton-recuperar-contrasena").addEventListener("click", function () {
     const respuesta = prompt("¿Quién ganó la Copa Mundial Qatar 2022?\n1-Uruguay\n2-Argentina\n3-Brasil\n4-Yo soy mas del anime");
     if (respuesta === "4") {
         mostrarMensaje("ESAAAA AGUANTE ONE PIECE PAPAAAAA... Ah cierto, Respuesta incorrecta señor usuario.", "#dc3545", "#fff");
-    }
-    if (respuesta === "2") {
+    } else if (respuesta === "2" || respuesta === "1" || respuesta === "3") {
         const nombreUsuario = prompt("Por favor, ingresa el nombre del usuario para recuperar la contraseña:");
         
-        if (nombreUsuario !== credencialesOriginales.usuario) {
+        const usuarioEncontrado = usuariosRegistrados.find(user => user.username === nombreUsuario);
+        
+        if (!usuarioEncontrado) {
             mostrarMensaje("Usuario no encontrado o mal escrito.", "#dc3545", "#fff");
         } else {
-            const contrasena = credencialesOriginales.contrasena;
+            const contrasena = usuarioEncontrado.contrasena;
             mostrarMensaje(`Contraseña para ${nombreUsuario}: ${contrasena}`, "#28a745", "#fff");
         }
-    } else if(respuesta === "1" || respuesta ==="3") {
-        mostrarMensaje("Que vivis adentro de una tetera? ARGENTIINAA PAAPAAA.", "#dc3545", "#fff");
     }
 });
+
 
 
 function iniciarSesion(usuario, contraseña) {
@@ -150,7 +144,16 @@ function Usuario(nombre, edad, email, sexo, username, contrasena) {
     this.contrasena = contrasena;
 }
 
-const usuariosRegistrados = [];
+const usuariosRegistrados = [
+    {
+    nombre: "Codersito",
+    edad: 0, 
+    email: "correo@coder.com",
+    sexo: "M",
+    username: "Coder", 
+    contrasena: "lapelucaloca123"
+}
+];
 
 document.getElementById("boton-registrarse").addEventListener("click", function () {
     const contenedorLogin = document.querySelector(".contenedor-login");
@@ -195,7 +198,6 @@ document.getElementById("formulario-registro").addEventListener("submit", functi
         contenedorRegistro.style.display = "none";
     }
 });
-
 document.getElementById("formulario-login").addEventListener("submit", function (evento) {
     evento.preventDefault();
     const usuario = document.getElementById("usuario").value;
