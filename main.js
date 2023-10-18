@@ -9,7 +9,7 @@ if (pacientes.length === 0) {
             edad: 36,
             direccion: "Calle siempreviva 742",
             diagnostico: "Crayon en el cerebro",
-            fechaHoraIngreso: "16/10/2022 6:46 AM"
+            fechaHoraIngreso: "16/10/2022 06:46 AM"
         },
         {
             nombre: "Peter",
@@ -17,7 +17,7 @@ if (pacientes.length === 0) {
             edad: 16,
             direccion: "69th Road, en Forest Hills",
             diagnostico: "Delirios de poderes por picadura de araña radioactiva",
-            fechaHoraIngreso: "9/03/2023 4:22 AM"
+            fechaHoraIngreso: "9/03/2023 04:22 AM"
         },
         {
             nombre: "Bruce",
@@ -25,7 +25,7 @@ if (pacientes.length === 0) {
             edad: 40,
             direccion: "Mansion Wayne",
             diagnostico: "quiroptofobia.",
-            fechaHoraIngreso: "11/09/2001 8:46 AM"
+            fechaHoraIngreso: "11/09/2001 08:46 AM"
         }
     ];
 }
@@ -46,6 +46,26 @@ const credencialesOriginales = {
     usuario: "Coder",
     contrasena: "lapelucaloca123"
 };
+
+document.getElementById("boton-recuperar-contrasena").addEventListener("click", function () {
+    const respuesta = prompt("¿Quién ganó la Copa Mundial Qatar 2022?\n1-Uruguay\n2-Argentina\n3-Brasil\n4-Yo soy mas del anime");
+    if (respuesta === "4") {
+        mostrarMensaje("ESAAAA AGUANTE ONE PIECE PAPAAAAA... Ah cierto, Respuesta incorrecta señor usuario.", "#dc3545", "#fff");
+    }
+    if (respuesta === "2") {
+        const nombreUsuario = prompt("Por favor, ingresa el nombre del usuario para recuperar la contraseña:");
+        
+        if (nombreUsuario !== credencialesOriginales.usuario) {
+            mostrarMensaje("Usuario no encontrado o mal escrito.", "#dc3545", "#fff");
+        } else {
+            const contrasena = credencialesOriginales.contrasena;
+            mostrarMensaje(`Contraseña para ${nombreUsuario}: ${contrasena}`, "#28a745", "#fff");
+        }
+    } else if(respuesta === "1" || respuesta ==="3") {
+        mostrarMensaje("Que vivis adentro de una tetera? ARGENTIINAA PAAPAAA.", "#dc3545", "#fff");
+    }
+});
+
 
 function iniciarSesion(usuario, contraseña) {
     const usuarioEncontrado = usuariosRegistrados.find(user => user.username === usuario && user.contrasena === contraseña);
@@ -93,6 +113,7 @@ function actualizarListaPacientes() {
             <div>
                 <b>${paciente.nombre} ${paciente.apellido}</b><br>
                 Edad: ${paciente.edad}<br>
+                Direccion: ${paciente.direccion}<br>
                 Hora y Fecha de Ingreso: ${paciente.fechaHoraIngreso}<br>
                 Diagnóstico: ${paciente.diagnostico}
             </div>
