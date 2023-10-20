@@ -45,7 +45,10 @@ document.getElementById("boton-recuperar-contrasena").addEventListener("click", 
     const respuesta = prompt("¿Quién ganó la Copa Mundial Qatar 2022?\n1-Uruguay\n2-Argentina\n3-Brasil\n4-Yo soy mas del anime");
     if (respuesta === "4") {
         mostrarMensaje("ESAAAA AGUANTE ONE PIECE PAPAAAAA... Ah cierto, Respuesta incorrecta señor usuario.", "#dc3545", "#fff");
-    } else if (respuesta === "2" || respuesta === "1" || respuesta === "3") {
+    }else if (respuesta === "1" || respuesta === "3"){
+    mostrarMensaje("Donde vivis!?!\n Dentro de una tetera?")
+    }
+     else if (respuesta === "2") {
         const nombreUsuario = prompt("Por favor, ingresa el nombre del usuario para recuperar la contraseña:");
         
         const usuarioEncontrado = usuariosRegistrados.find(user => user.username === nombreUsuario);
@@ -56,6 +59,8 @@ document.getElementById("boton-recuperar-contrasena").addEventListener("click", 
             const contrasena = usuarioEncontrado.contrasena;
             mostrarMensaje(`Contraseña para ${nombreUsuario}: ${contrasena}`, "#28a745", "#fff");
         }
+    } else if (isNaN(respuesta)){
+        mostrarMensaje("Por favor ingrese solamente un numero del 1 al 4 como respuesta\nDe lo contrario usted sera considerado como tosco!")
     }
 });
 
